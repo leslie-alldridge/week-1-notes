@@ -1,54 +1,49 @@
-module.exports = {
-    getType: getType,
-    isNumber: isNumber,
-    toNumber: toNumber,
-    isStringNumber: isStringNumber,
-    add: add,
-    addStrings: addStrings,
-    addStringsOrNumbers: addStringsOrNumbers,
-    isEmail: isEmail,
-    countIf: countIf,
-    filter: filter,
-    map: map,
-    filterStringsWithCommas: filterStringsWithCommas,
-    splitStringByCommas: splitStringByCommas
-  }
+// function getType (thing) {
+//     return typeof thing;
+// }
 
-function getType (thing) {
-    return typeof thing;
-}
+getType = (thing) => typeof thing;
 
-function isNumber (thing) {
-    console.log(typeof thing);
-    if (typeof thing === 'number'){
-        return true;
-    } else {
-        return false;
-    }
-}
+// function isNumber (thing) {
+//     console.log(typeof thing);
+//     if (typeof thing === 'number'){
+//         return true;
+//     } else {
+//         return false;
+//     }
+// }
+isNumber = (thing) => typeof thing === 'number' ? true : false;
 
-function toNumber (str) {
-    return parseInt(str);
-}
+// function toNumber (str) {
+//     return parseInt(str);
+// }
 
-function isStringNumber (str) {
-    if (parseInt(str)) {
-        return true;
-    } else {
-        return false;
-    }
-}
+toNumber = (str) => parseInt(str);
 
-function add (a, b) {
-    return a + b;
-}
+// function isStringNumber (str) {
+//     if (parseInt(str)) {
+//         return true;
+//     } else {
+//         return false;
+//     }
+// }
 
-function addStrings (a, b) {
-    console.log(a, b)
-    let n = parseInt(b)
-    let total = a + n
-    return total.toString()
-}
+isStringNumber = (str) => parseInt(str) ? true : false;
+
+// function add (a, b) {
+//     return a + b;
+// }
+
+add = (a, b) => a + b
+
+// function addStrings (a, b) {
+//     console.log(a, b)
+//     let n = parseInt(b)
+//     let total = a + n
+//     return total.toString()
+// }
+
+addStrings = (a, b) => String(add(parseInt(b), a)); //uses the add function above^
 
 function addStringsOrNumbers (a, b) {
     // assigning types to variables and console logging to test
@@ -130,3 +125,18 @@ function splitStringByCommas (str) {
 
 
 
+module.exports = {
+    getType: getType,
+    isNumber: isNumber,
+    toNumber: toNumber,
+    isStringNumber: isStringNumber,
+    add: add,
+    addStrings: addStrings,
+    addStringsOrNumbers: addStringsOrNumbers,
+    isEmail: isEmail,
+    countIf: countIf,
+    filter: filter,
+    map: map,
+    filterStringsWithCommas: filterStringsWithCommas,
+    splitStringByCommas: splitStringByCommas
+  }

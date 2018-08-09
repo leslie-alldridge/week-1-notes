@@ -3,63 +3,43 @@
  */
 
 // getGreeting should return a string containing 'Hello ' and the contents of `name`
-function getGreeting (name) {
-  return 'Hello ' + name;
-}
+getGreeting = (name) => 'Hello ' + name;
 
 // ageOneYear should add one to the `age` property of `obj`
-function ageOneYear (obj) {
-  return obj.age ++;
-}
+ageOneYear = (obj) => obj.age ++;
 
-// makeObject should return an object that looks like this:
-// (but using the arguments passed to the function)
-// {
-//   key: value
-// }
-function makeObject (key, value) {
+makeObject = (key, value) => {
   let obj = {};
   obj[key] = value;
   return obj;
 }
 
 // getValue should return the value of the property contained in `key`
-function getValue (obj, key) {
-  return obj[key];
-}
+getValue = (obj, key) => obj[key];
 
 // addName should add a `name` property to the object with the value of the `name` argument
-function addName (obj, name) {
-  return obj["name"] = name;
-}
+addName = (obj, name) => obj["name"] = name;
 
 // deleteProperty should remove the property contained in `key` from `obj`
 // Tip: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/delete
-function deleteProperty (obj, key) {
-  return delete obj[key];
-}
+deleteProperty = (obj, key) => delete obj[key];
 
 // returnErrorIfFalsy should return a JavaScript Error object with message:
 //   'Oh no, an error!'
 // if val evaluates to false
 // Tip: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error
-function returnErrorIfFalsy (val) {
+returnErrorIfFalsy = (val) => {
   if (!val) {
     return new Error(['Oh no, an error!']);
   }
 }
-
 // keys should return an array of the object's property names (keys)
 // For example, given { foo: 1, bar: 2 } it would return ['foo', 'bar']
-function keys (obj) {
-  return Object.keys(obj);
-}
+keys = (obj) => Object.keys(obj);
 
 // values should return an array of the object's own values
 // For example, given { foo: 1, bar: 2 } it would return [1, 2]
-function values (obj) {
-  return Object.values(obj);
-}
+values = (obj) => Object.values(obj);
 
 /**
  * Arrays

@@ -48,7 +48,7 @@ values = (obj) => Object.values(obj);
 // makeArrayOfItem should return an array that is `length` long, made up of `item`
 // For example, makeArrayOfItem('foo', 2) would return:
 // [ 'foo', 'foo' ]
-function makeArrayOfItem (item, length) {
+makeArrayOfItem = (item, length) => {
   let arr = [];
   for (let i = 0; i < length; i++) {
     arr.push(item);
@@ -64,56 +64,38 @@ function makeArrayOfItems () {
 
 // hasItem should return true if `item` is present in `arr` at least once,
 // otherwise it should return false.
-function hasItem (arr, item) {
-  return arr.includes(item);
-}
+hasItem = (arr, item) => arr.includes(item);
 
 // getItemAtIndex should return arr[idx] but only if that index exists:
 // if it doesn't, return a JavaScript Error object.
-function getItemAtIndex (arr, idx) {
-  let index = arr.indexOf(idx);
-  if (!arr[idx]){
-    return new Error();
-  } else {
-    return arr[idx];
-  }
-}
+getItemAtIndex = (arr, idx) => !arr[idx] ?  new Error() : arr[idx];
 
 // replaceItemAtIndex should replace the element at `idx` with `item`
-function replaceItemAtIndex (arr, idx, item) {
+replaceItemAtIndex = (arr, idx, item) => {
   arr[idx] = item;
   return arr;
 }
 
 // insertItemAtIndex should insert `item` at `idx` without overwriting
 // any array values (the array should get longer)
-function insertItemAtIndex (arr, item,  idx) {
-  arr.splice(idx, 0, item);
-  return arr;
-}
+insertItemAtIndex = (arr, item,  idx) => arr.splice(idx, 0, item);
 
 // deleteItemAtIndex should remove the element at `idx` (the array
 // should get shorter).
-function deleteItemAtIndex (arr, idx) {
-  arr.splice(idx, 1);
-  return arr;
-}
+deleteItemAtIndex = (arr, idx) => arr.splice(idx, 1);
+  
 
 // deleteItem should return an array with every instance of `item` removed
-function deleteItem (arr, item) {
-  let arr2 = [];
-  for (let i = 0; i < arr.length; i ++) {
-    if (arr[i] !== item) {
-      arr2.push(arr[i]);
-    }
-  }
-  return arr2;
+deleteItem = (arr, item) => {
+  return arr.filter(function (currentItem) {
+    return currentItem !== item;
+});
 }
 
 // zipObject should return an object built from two arrays
 // For example, given ['foo', 'bar'] and [1, 2] it would return
 // { foo: 1, bar: 2}
-function zipObject (keys, values) {
+zipObject = (keys, values) => {
   let obj = {};
   for (let i = 0; i < keys.length; i++) {
     obj[keys[i]] = values[i];
@@ -124,7 +106,7 @@ function zipObject (keys, values) {
 // unzipObject should return an array of arrays, each one a pair of keys and values
 // For example, given { foo: 1, bar: 2} it would return
 // [ [ 'foo', 1 ], [ 'bar', 2 ] ]
-function unzipObject (obj) {
+unzipObject = (obj) => {
   let arr1 = [];
   for (let i = 0; i < Object.keys(obj).length; i++) {
     let arr2 = [];
@@ -140,41 +122,40 @@ function unzipObject (obj) {
 //   [ { a: 1 }, { b: 2, c: 3 } ] and { b: 2 }
 // it will return:
 //   { b: 2, c: 3 }
-function findOneByProperty (arr, search) {
-  let valueSearch = (Object.values(search)[0]); //cthulhu logs
-  let keySearch = (Object.keys(search)[0]); //name logs
-  let result = arr.filter( name => name[keySearch] === valueSearch );
-  return result[0]; // this can be improved because i knew only one result was coming back  
+findOneByProperty = (arr, search) => {
+  let value = (Object.values(search)[0]);
+  let keyID = (Object.keys(search)[0]);
+  return arr.find( nameID => nameID[keyID] == value );
 }
 
 // findAll should return an array containing all objects in `arr` that
 // have the property and value of `search`
-function findAll (arr, search) {
+findAll = (arr, search) => {
   let valueSearch = (Object.values(search)[0]); //232 logs
   let keySearch = (Object.keys(search)[0]); //age logs
   return arr.filter( name => name[keySearch] === valueSearch );
 }
 
 module.exports = {
-  addName: addName,
-  ageOneYear: ageOneYear,
-  deleteItem: deleteItem,
-  deleteItemAtIndex: deleteItemAtIndex,
-  deleteProperty: deleteProperty,
-  getGreeting: getGreeting,
-  getItemAtIndex : getItemAtIndex,
-  getValue: getValue,
-  findOneByProperty: findOneByProperty,
-  findAll: findAll,
-  hasItem : hasItem,
-  insertItemAtIndex: insertItemAtIndex,
-  keys: keys,
-  makeArrayOfItem: makeArrayOfItem,
-  makeArrayOfItems: makeArrayOfItems,
-  makeObject: makeObject,
-  replaceItemAtIndex: replaceItemAtIndex,
-  returnErrorIfFalsy: returnErrorIfFalsy,
-  unzipObject: unzipObject,
-  values: values,
-  zipObject: zipObject
+  addName,
+  ageOneYear,
+  deleteItem,
+  deleteItemAtIndex,
+  deleteProperty,
+  getGreeting,
+  getItemAtIndex,
+  getValue,
+  findOneByProperty,
+  findAll,
+  hasItem,
+  insertItemAtIndex,
+  keys,
+  makeArrayOfItem,
+  makeArrayOfItems,
+  makeObject,
+  replaceItemAtIndex,
+  returnErrorIfFalsy,
+  unzipObject,
+  values,
+  zipObject
 }

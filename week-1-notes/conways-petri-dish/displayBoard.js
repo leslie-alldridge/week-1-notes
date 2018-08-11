@@ -1,10 +1,11 @@
 function displayBoard (board) {
-  // eslint-disable-next-line no-console
-   console.log(board)
-  // process.stdout.write(board.toString())
-  // process.stdout.write(board + '\n')
+  process.stdout.write('\x1B[2J\x1B[0f')
 
-  
+  for (let i = 0; i < board.length; i++) {
+    const row = board[i]
+    console.log(row.map(cell => (cell) ? 'o' : '.').join(' '))
+  }
+  console.log()
 }
 
 module.exports = displayBoard

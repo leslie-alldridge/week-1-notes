@@ -1,0 +1,17 @@
+body {
+    background-color: #000000;
+}
+
+h1 {
+    text-align: center;
+    color: #00FF00;
+}
+
+.center {
+    display: block;
+    margin: 0 auto;
+}
+
+button, select {
+    width: 100px;
+}

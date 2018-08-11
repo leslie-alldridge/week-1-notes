@@ -18,5 +18,8 @@
   "homepage": "https://github.com/dev-academy-challenges/conways#readme",
   "devDependencies": {
     "jest": "^21.2.1"
+  },
+  "dependencies": {
+    "browserify": "^16.2.2"
   }
 }

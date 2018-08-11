@@ -1,8 +1,6 @@
 const indicesAreOutOfBounds = require('./indicesAreOutOfBounds')
 
 getNeighbours = (cellRow, cellColumn, board) => {
-   // console.log(board);
-
     let surroundingNeighbours = [];
     for (let x = -1; x <= 1; x++) {
         for (let y = -1; y <= 1; y++) {
@@ -13,7 +11,6 @@ getNeighbours = (cellRow, cellColumn, board) => {
             } 
         }
     }
- //   console.log(surroundingNeighbours)
     return surroundingNeighbours;
 }
 
